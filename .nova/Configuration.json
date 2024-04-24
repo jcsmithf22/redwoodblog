@@ -1,0 +1,4 @@
+{
+  "apexskier.typescript.config.userPreferences.includeCompletionsForImportStatements" : true,
+  "apexskier.typescript.config.userPreferences.includeInlayParameterNameHints" : "none"
+}
