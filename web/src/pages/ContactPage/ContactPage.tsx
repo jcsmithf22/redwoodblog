@@ -1,7 +1,7 @@
 import {
   CreateContactMutation,
   CreateContactMutationVariables,
-} from 'types/graphql'
+} from 'types/graphql';
 
 import {
   FieldError,
@@ -13,9 +13,9 @@ import {
   TextAreaField,
   TextField,
   useForm,
-} from '@redwoodjs/forms'
-import { Metadata, useMutation } from '@redwoodjs/web'
-import { Toaster, toast } from '@redwoodjs/web/dist/toast'
+} from '@redwoodjs/forms';
+import { Metadata, useMutation } from '@redwoodjs/web';
+import { Toaster, toast } from '@redwoodjs/web/dist/toast';
 
 const CREATE_CONTACT = gql`
   mutation CreateContactMutation($input: CreateContactInput!) {
@@ -23,31 +23,31 @@ const CREATE_CONTACT = gql`
       id
     }
   }
-`
+`;
 
 interface FormValues {
-  name: string
-  email: string
-  message: string
+  name: string;
+  email: string;
+  message: string;
 }
 
 const ContactPage = () => {
-  const formMethods = useForm({ mode: 'onBlur' })
+  const formMethods = useForm({ mode: 'onBlur' });
 
   const [create, { loading, error }] = useMutation<
     CreateContactMutation,
     CreateContactMutationVariables
   >(CREATE_CONTACT, {
     onCompleted: () => {
-      toast.success('Message sent!')
-      formMethods.reset()
+      toast.success('Message sent!');
+      formMethods.reset();
     },
-  })
+  });
 
   const onSubmit: SubmitHandler<FormValues> = (data) => {
-    if (loading) return
-    create({ variables: { input: data } })
-  }
+    if (loading) return;
+    create({ variables: { input: data } });
+  };
 
   return (
     <>
@@ -96,7 +96,7 @@ const ContactPage = () => {
         <Submit>{loading ? 'Saving...' : 'Save'}</Submit>
       </Form>
     </>
-  )
-}
+  );
+};
 
-export default ContactPage
+export default ContactPage;

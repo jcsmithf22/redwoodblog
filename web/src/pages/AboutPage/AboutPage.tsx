@@ -1,4 +1,4 @@
-import { Metadata } from '@redwoodjs/web'
+import { Metadata } from '@redwoodjs/web';
 
 const AboutPage = () => {
   return (
@@ -7,7 +7,7 @@ const AboutPage = () => {
 
       <p>This site was created to increase my understanding of Redwood.</p>
     </>
-  )
-}
+  );
+};
 
-export default AboutPage
+export default AboutPage;
